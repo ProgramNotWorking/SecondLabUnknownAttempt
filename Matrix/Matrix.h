@@ -13,6 +13,7 @@ private:
     int** array;
 
 public:
+    Matrix(const Matrix&);
     Matrix(int n, int m);
     ~Matrix();
     void fillMatrix();
@@ -21,11 +22,9 @@ public:
     friend Matrix operator-(Matrix, Matrix);
     friend Matrix operator*(Matrix, Matrix);
     void displayMatrix();
-    int getN();
-    int getArray();
 
 private:
-    void doDinamicArray();
+    void doDynamicArray();
 
 };
 

@@ -1,5 +1,11 @@
 #include "Matrix.h"
 
+Matrix::Matrix(const Matrix& someObj) {
+    n = someObj.n;
+    m = someObj.m;
+    array = someObj.array;
+}
+
 Matrix::Matrix(int n, int m) {
     this->n = n;
     this->m = m;
@@ -9,9 +15,10 @@ Matrix::~Matrix() {
     for (int i = 0; i < n; i++) {
         delete [] array[i];
     }
+    delete[] array;
 }
 
-void Matrix::doDinamicArray() {
+void Matrix::doDynamicArray() {
     array = new int* [n];
     for (int i = 0; i < n; i++) {
         array[i] = new int[m];
@@ -20,7 +27,7 @@ void Matrix::doDinamicArray() {
 
 void Matrix::fillMatrix() {
     srand(time(nullptr));
-    doDinamicArray();
+    doDynamicArray();
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
