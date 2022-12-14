@@ -1,7 +1,7 @@
 #include "Matrix/Matrix.h"
 
 #include <iostream>
-#include <string>
+#include <cmath>
 
 using namespace std;
 
@@ -30,13 +30,40 @@ int main() {
     cin >> menuPoint;
 
     if (menuPoint == 1) {
-        resultMatrix = firstMatrix + secondMatrix;
-        resultMatrix.displayMatrix();
+        try {
+            if (resultMatrix.getN() == resultMatrix.getM()) {
+                resultMatrix = firstMatrix + secondMatrix;
+                resultMatrix.displayMatrix();
+            } else {
+                throw (resultMatrix.getN() - resultMatrix.getM());
+            }
+        } catch(int n) {
+            cout << "Your matrix is not square" << endl;
+            cout << "Difference your lines and columns are: " << abs(n);
+        }
     } else if (menuPoint == 2) {
-        resultMatrix = firstMatrix - secondMatrix;
-        resultMatrix.displayMatrix();
+        try {
+            if (resultMatrix.getN() == resultMatrix.getM()) {
+                resultMatrix = firstMatrix - secondMatrix;
+                resultMatrix.displayMatrix();
+            } else {
+                throw (resultMatrix.getN() - resultMatrix.getM());
+            }
+        } catch (int n) {
+            cout << "Your matrix is not square" << endl;
+            cout << "Difference your lines and columns are: " << abs(n);
+        }
     } else if (menuPoint == 3) {
-        resultMatrix = firstMatrix * secondMatrix;
-        resultMatrix.displayMatrix();
+        try {
+            if (resultMatrix.getN() == resultMatrix.getM()) {
+                resultMatrix = firstMatrix * secondMatrix;
+                resultMatrix.displayMatrix();
+            } else {
+                throw (resultMatrix.getN() - resultMatrix.getM());
+            }
+        } catch (int n) {
+            cout << "Your matrix is not square" << endl;
+            cout << "Difference your lines and columns are: " << abs(n);
+        }
     } else return 0;
 }

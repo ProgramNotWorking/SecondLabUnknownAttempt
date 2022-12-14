@@ -15,8 +15,11 @@ private:
 public:
     Matrix(const Matrix&);
     Matrix(int n, int m);
+    Matrix();
     ~Matrix();
     void fillMatrix();
+    int getN();
+    int getM();
     Matrix& operator=(const Matrix&);
     friend Matrix operator+(Matrix, Matrix);
     friend Matrix operator-(Matrix, Matrix);

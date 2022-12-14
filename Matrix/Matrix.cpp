@@ -11,6 +11,12 @@ Matrix::Matrix(int n, int m) {
     this->m = m;
 }
 
+Matrix::Matrix() {
+    this->n = 0;
+    this->m = 0;
+    this->array = nullptr;
+}
+
 Matrix::~Matrix() {
     for (int i = 0; i < n; i++) {
         delete [] array[i];
@@ -35,6 +41,10 @@ void Matrix::fillMatrix() {
         }
     }
 }
+
+int Matrix::getN() { return n; }
+
+int Matrix::getM() { return m; }
 
 Matrix &Matrix::operator=(const Matrix &someObj) {
     n = someObj.n;
